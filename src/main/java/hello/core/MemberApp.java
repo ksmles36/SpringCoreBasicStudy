@@ -9,9 +9,13 @@ public class MemberApp {
 
     public static void main(String[] args) {
 
-        MemberService memberService = new MemberServiceImpl();
-        Member memberA = Member.of(1L, "memberA", Grade.VIP);
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+//        MemberService memberService = new MemberServiceImpl();
+
 //        Member memberA = new Member(1L, "memberA", Grade.VIP);
+        Member memberA = Member.of(1L, "memberA", Grade.VIP);
+
         memberService.join(memberA);
 
         Member findMember = memberService.findMember(memberA.getId());
