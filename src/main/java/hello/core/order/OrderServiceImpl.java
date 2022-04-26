@@ -23,4 +23,9 @@ public class OrderServiceImpl implements OrderService {
 
         return Order.of(memberId, itemName, itemPrice, discountAmount);
     }
+
+    //싱글톤 테스트용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
