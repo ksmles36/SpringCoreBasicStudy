@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    //컨테이너에 key는 memberService value는 리턴되는 생성된 객체로 저장되어서 관리된다.
+    //컨테이너에 key는 memberService, value는 리턴되는 생성된 객체로 저장되어서 관리된다.
     @Bean
     public MemberService memberService() {
         System.out.println("call AppConfig.memberService");

@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     }
     */
 
-//    @Autowired  //생성자 주입
+    @Autowired  //생성자 주입
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 //        System.out.println("memberRepository = " + memberRepository);
 //        System.out.println("discountPolicy = " + discountPolicy);
