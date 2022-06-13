@@ -1,13 +1,12 @@
 package hello.core.lifecycle;
 
+
 public class NetworkClient {
 
     private String url;
 
     public NetworkClient() {
         System.out.println("생성자 호출, url = " + url);
-        connect();
-        call("초기화 연결 메시지");
     }
 
     public void setUrl(String url) {
@@ -26,5 +25,18 @@ public class NetworkClient {
     //서비스 종료 시 호출
     public void disconnect() {
         System.out.println("close : " + url);
+    }
+
+    public void init() {
+        //스프링 빈이 생성되고, 의존관계 주입이 다 끝난 직후에 호출
+        System.out.println("NetworkClient.init");
+        connect();
+        call("초기화 연결 메시지");
+    }
+
+    public void close() {
+        //스프링 빈이 소멸되기 직전에 호출
+        System.out.println("NetworkClient.close");
+        disconnect();
     }
 }

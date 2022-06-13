@@ -12,13 +12,13 @@ public class BeanLifeCycleTest {
     public void lifeCycleTest() {
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleTest.class);
         NetworkClient client = ac.getBean(NetworkClient.class);
-        ac.close();
+        ac.close();  //스프링 빈 종료
     }
 
     @Configuration
     static class LifeCycleTest{
 
-        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
